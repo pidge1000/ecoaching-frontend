@@ -3,15 +3,4 @@
     <title>Ecoaching Frontend</title>
 </div>
 
-<div [ngClass] = "{'stringClass': true }"> {{ charString }} </div>
-
-<textarea [ngClass] = "{'textClass': true }">{{ totalValue }}</textarea><br /><br />
-
-<app-digit (numberClicked)="numberClick($event)"></app-digit>
-
-<span *ngFor="let operation of operationArray;">
-    <button [ngClass]="{'operationClass': true }" (click)="operationClick(operation)" id="{{ operation.value }}" >{{ operation.sign }}</button>
-</span>
-
-<button [ngClass] = "{'equalClass': true }" (click)="equalClick()" id="equal" >=</button>
-
+<app-calculator></app-calculator>
