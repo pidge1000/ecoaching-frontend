@@ -1,16 +1,10 @@
 import { Component } from '@angular/core';
+import { DigitComponent } from './digit/digit.component';
 
 @Component({
  	selector: 'app-root',
  	templateUrl: './app.component.html',
  	styles: [`
-
- 		.numberClass {
- 			width: 100px;
- 			height: 50px;
- 			margin-left: 20px;
- 			margin-top: 10px;
- 		}
 
  		.operationClass {
  			width: 100px;
@@ -46,30 +40,30 @@ export class AppComponent {
 	public operator: number = 0
 	public totalValue: number = 0
 	public charString: any = ""
-	public storeValue: Array<String> = []
+	public storeValue: Array<any> = []
 	public finalArray: Array<number> = []
 
 	public MathF: Math = Math;
  	public title: String = 'ecoaching-frontend';
-  	public numberArray: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   	public operationArray: Array<{value: number, sign: String}> = [{value: 1, sign: "+"}, {value: 2, sign: "-"}, {value: 3, sign: "*"}, {value: 4, sign: "/"}]
 
-  	numberClick(value) {
+  	numberClick(value: number) {
 
   		let num: number = 0
   		let count: number = 0
 	  	this.storeValue.push(value)
 	  	
-	  	for (let i = this.storeValue.length-1; i >= 0; i--) {
+	  	for (let i = this.storeValue.length-1; i >= 0; i--) 
+	  	{
 	  		num = num + this.storeValue[i]*this.MathF.pow(10, count)
-	  		count++;
+	  		count++
 	  	}
 	  	
-	  	this.numb = num;
+	  	this.numb = num
 	  	this.charString = this.charString + value
   	}
 
-  	operationClick(key) {
+  	operationClick(key: any) {
 
   		this.storeValue = []
 	  	this.operator = key.value
