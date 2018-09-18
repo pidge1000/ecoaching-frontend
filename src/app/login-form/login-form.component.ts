@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { LoginService } from '../services/login.service';
+
+import { Login } from './login';
 
 @Component({
   selector: 'app-login-form',
@@ -8,6 +11,7 @@ import { LoginService } from '../services/login.service';
 })
 export class LoginFormComponent implements OnInit {
 
+    public modelLogin = new Login('', '');
 	public submitted: boolean = false
 
  	constructor( private _LoginService: LoginService ) { }
@@ -15,16 +19,15 @@ export class LoginFormComponent implements OnInit {
   	ngOnInit() { 
   	}
 
-  	onSubmit(loginForm) {
+  	onSubmit(loginForm: NgForm) {
 
-  		console.log(loginForm.value)
-  		/*this._LoginService.postApiTesting().subscribe(
+  		const loginFormValue = JSON.stringify(loginForm.value)
+  		this._LoginService.loginApi(loginFormValue).subscribe(
   			(data) => {
-  				console.log(data.token)
-  				console.log("POST")
+                localStorage.setItem('token', data.token);
   				this.submitted = true
   			}
-		)*/
+		)
 
   	}
 

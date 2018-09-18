@@ -5,12 +5,12 @@
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" class="form-control" id="email" name="email">
+                <input type="text" class="form-control" id="email" [(ngModel)]="modelLogin.email" name="email">
             </div>
             <br />
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="text" class="form-control" id="password" password="password" required>
+                <input type="text" class="form-control" id="password" [(ngModel)]="modelLogin.password" name="password">
             </div>
             <br />
             <button type="submit" class="btn btn-success">Submit</button>

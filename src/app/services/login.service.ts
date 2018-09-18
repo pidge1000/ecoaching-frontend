@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 const httpOptions = {
 	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -10,9 +11,10 @@ const httpOptions = {
 })
 export class LoginService {
 
+	public APIEndpoint = environment.APIEndpoint
   	constructor(private _http: HttpClient) { }
 
-	loginApi() {
-		return this._http.post('https://api-ecoaching-guru.herokuapp.com/login/signin', , httpOptions)
+	loginApi(value) {
+		return this._http.post(this.APIEndpoint + '/login/signin', JSON.parse(value), httpOptions)
   	}
 }
