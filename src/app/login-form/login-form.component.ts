@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { LoginService } from '../services/login.service';
+import { Router } from '@angular/router';
 
 import { Login } from './login';
+import { LoginService } from '../services/login.service';
+
+
 
 @Component({
-  selector: 'app-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css']
+    selector: 'app-login-form',
+    templateUrl: './login-form.component.html'
 })
+
 export class LoginFormComponent implements OnInit {
 
     public modelLogin = new Login('', '');
 	public submitted: boolean = false
 
- 	constructor( private _LoginService: LoginService ) { }
+ 	constructor( private _LoginService: LoginService, private _Router: Router) { }
 
   	ngOnInit() { 
   	}
@@ -23,9 +26,10 @@ export class LoginFormComponent implements OnInit {
 
   		const loginFormValue = JSON.stringify(loginForm.value)
   		this._LoginService.loginApi(loginFormValue).subscribe(
-  			(data) => {
-                localStorage.setItem('token', data.token);
-  				this.submitted = true
+  			(data: any) => {
+                this.submitted = true
+                localStorage.setItem('token', data.token)
+                this._Router.navigate(['/bloglist'])
   			}
 		)
 

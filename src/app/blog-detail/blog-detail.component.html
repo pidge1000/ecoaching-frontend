@@ -1,0 +1,8 @@
+<div *ngIf='dataLoading'>
+	Data Loading
+</div>
+<div *ngIf='!dataLoading'>
+	<p>Title: {{ blogObject.Title }}</p><br /> 
+	<p>Desc: {{ blogObject.Description }}</p><br /> 
+	<p>Category: {{ blogObject.Category }}</p><br /> 
+</div>

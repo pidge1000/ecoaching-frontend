@@ -12,9 +12,9 @@ const httpOptions = {
 export class LoginService {
 
 	public APIEndpoint = environment.APIEndpoint
-  	constructor(private _http: HttpClient) { }
+  	constructor(private _Http: HttpClient) { }
 
 	loginApi(value) {
-		return this._http.post(this.APIEndpoint + '/login/signin', JSON.parse(value), httpOptions)
+		return this._Http.post(this.APIEndpoint + '/login/signin', JSON.parse(value), httpOptions)
   	}
 }

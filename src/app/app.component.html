@@ -3,8 +3,14 @@
     <title>Ecoaching Frontend</title>
 </div>
 
-<div>{{ apiTesting }}</div>
+<div>{{ apiTesting }}</div><br /><br />
+
+<nav>
+    <a routerLink="/login" routerLinkActive="active">Login</a><br /><br />
+    <a routerLink="/calculator" routerLinkActive="active">Calculator</a><br /><br />
+    <a routerLink="/bloglist" routerLinkActive="active">Blog List</a><br /><br />
+</nav>
+
+
 <br /><br /><br /><br />
-<app-login-form></app-login-form>
-<br /><br /><br /><br />
-<app-calculator></app-calculator>
+<router-outlet></router-outlet>

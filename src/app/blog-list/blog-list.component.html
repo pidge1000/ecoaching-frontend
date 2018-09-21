@@ -1,0 +1,23 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+        	<td>ID</td>&nbsp;&nbsp;&nbsp;&nbsp;
+        	<td>Title</td>&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>Description</td>&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>Category</td>&nbsp;&nbsp;&nbsp;&nbsp;
+        </tr>
+    </thead>
+    <tbody *ngIf = "!dataLoading">
+        <tr *ngFor = "let blog of blogArray; let i = index">
+        	<td>{{ i }}</td>&nbsp;&nbsp;&nbsp;&nbsp;
+            <td><a [routerLink]="['/blogdetail', blog._id]">{{ blog.Title }}</a></td>&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{ blog.Description }}</td>&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{ blog.Category }}</td>&nbsp;&nbsp;&nbsp;&nbsp;
+        </tr>
+    </tbody>
+    <tbody *ngIf="dataLoading">
+    	<tr>
+        	Data Loading
+        </tr>
+    </tbody>
+</table>
