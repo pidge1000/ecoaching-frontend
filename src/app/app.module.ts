@@ -4,6 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
+import { AuthService } from './auth/auth.service';
+import { AuthGuardService } from './auth/auth-guard.service';
+
 import { AppComponent } from './app.component';
 import { DigitComponent } from './digit/digit.component';
 import { CalculatorComponent } from './calculator/calculator.component';
@@ -32,7 +35,7 @@ import { BlogDetailComponent } from './blog-detail/blog-detail.component';
         ReactiveFormsModule,
         AppRoutingModule
     ],
-    providers: [HttpService, LoginService, BlogService],
+    providers: [HttpService, LoginService, BlogService, AuthService, AuthGuardService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
