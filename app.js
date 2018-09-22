@@ -1,16 +1,15 @@
 const express = require('express')
-const http = require('http')
 const path = require('path')
 
 const app = express()
-app.use(express.static(path.join(__dirname, 'dist')))
+app.use(express.static(path.join(__dirname, 'dist/ecoaching-frontend')))
 
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, 'dist/index.html'))
+	res.sendFile(path.join(__dirname, 'dist/ecoaching-frontend/index.html'))
 })
 
-const port = process.env.PORT || 3000
-app.set('port', port)
+const PORT = process.env.PORT || 3000;
 
-const server = http.createServer(app)
-server.listen(port, () => console.log("Server Running"))
+app.listen(PORT, () => {
+   console.log(`Server is running on Port ${PORT}`);
+});
