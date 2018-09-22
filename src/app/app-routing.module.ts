@@ -7,7 +7,7 @@ import { LoginFormComponent }   from './login-form/login-form.component';
 import { BlogListComponent }   from './blog-list/blog-list.component';
 import { BlogDetailComponent }   from './blog-detail/blog-detail.component';
 
-const Routes: Routes = [
+const _Routes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full' },
   	{ path: 'login', component: LoginFormComponent },
   	{ path: 'calculator', component: CalculatorComponent },
@@ -19,7 +19,7 @@ const Routes: Routes = [
 @NgModule({
   	imports: [
     	RouterModule.forRoot(
-      		Routes,
+      		_Routes,
       		{ enableTracing: true } // <-- debugging purposes only
     	)
   	],
