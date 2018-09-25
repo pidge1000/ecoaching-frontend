@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HttpService } from './http.service';
+import { HttpService } from './services/http.service';
 
 @Component({
  	selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 	constructor(private _HttpService: HttpService) { }
 
 	ngOnInit() {
-    	this.getApiTesting()
+    	//this.getApiTesting()
   	}
 
   	getApiTesting() {

@@ -1,0 +1,15 @@
+<aside id="main__sidebar" *ngIf="navbarStatus">
+    <a class="hidden-lg main__block-close" href="<?=DASH_URL?>" data-rmd-action="block-close" data-rmd-target="#main__sidebar">
+        <i class="zmdi zmdi-long-arrow-left"></i>
+    </a>
+
+    <ul class="main-menu">
+        <li><a routerLink="/home" routerLinkActive="active"><i class="zmdi zmdi-home"></i> Home</a></li>
+        <li><a routerLink="/courses-list" routerLinkActive="active"><i class="zmdi zmdi-chart"></i> Courses</a></li>
+        <li><a routerLink="/batch-list" routerLinkActive="active"><i class="zmdi zmdi-view-list"></i> Batch</a></li>
+        <li><a routerLink="/teacher-list" routerLinkActive="active"><i class="zmdi zmdi-account-box"></i> Teachers</a></li>
+        <li><a routerLink="/gallery" routerLinkActive="active"><i class="zmdi zmdi-collection-image"></i> Gallery</a></li>
+        <br />
+        <!--<li <?=$testMenuActive?>><a href="<?=DASH_URL?>/exam-test-list" id="onlineTestSeries"><i class="zmdi zmdi-file-text"></i> Online Test&nbsp;&nbsp;<span class="mdc-bg-green-400">&nbsp;&nbsp;New&nbsp;&nbsp;</span></a></li>-->
+    </ul>
+</aside>
