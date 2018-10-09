@@ -23,6 +23,7 @@ const _Routes: Routes = [
   	{ path: 'login', component: LoginFormComponent },
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'courses-list', component: CoursesListComponent, canActivate: [AuthGuard] },
+    { path: 'course-add', component: CourseAddComponent, canActivate: [AuthGuard] },
   	{ path: 'calculator', component: CalculatorComponent },
   	{ path: 'bloglist', component: BlogListComponent, canActivate: [AuthGuard] },
   	{ path: 'blogdetail/:id', component: BlogDetailComponent, canActivate: [AuthGuard] },

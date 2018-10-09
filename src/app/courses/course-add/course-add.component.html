@@ -1,3 +1,79 @@
-<p>
-  course-add works!
-</p>
+<section id="main__content">
+    <div class="action-header-alt">
+        <a class="action-header__item action-header__back" routerLink="/courses-list" routerLinkActive="active">
+            <i class="zmdi zmdi-long-arrow-left"></i> Back to Courses list
+        </a>
+    </div>
+
+    <div class="main__container main__container-sm">
+        <header class="main__title" style="padding:0px;">
+            <h2>Add New Course</h2>
+        </header>
+
+        <form class="card new-contact" id="AddCourseForm">
+            <div class="card__body">
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <select name="child_category_id" class="select2 select2-hidden-accessible" tabindex="-1">
+
+                                <option *ngFor="let course of coursesDropdown">{{ course.name }}</option>
+
+                            </select>
+                            <i class="form-group__bar"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group form-group--float">
+                            <input type="number" name="duration" id="duration" min="1" class="form-control">
+                            <label class="asterikCls">Duration (In Weeks)</label>
+                            <i class="form-group__bar"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group form-group--float">
+                            <input type="number" name="price" id="price" min="1" class="form-control">
+                            <label>Price</label>
+                            <i class="form-group__bar"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group form-group--float">
+                            <input type="number" name="avg_no_student" id="avg_no_student" min="1" class="form-control">
+                            <label>Batch Size</label>
+                            <i class="form-group__bar"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group form-group--float">
+                            <input type="text" name="description" id="description" class="form-control">
+                            <label>Course Description</label>
+                            <i class="form-group__bar"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group form-group--float">
+                            <input type="text" name="teaching_pattern" id="teaching_pattern" class="form-control">
+                            <label>Teaching Pattern(eg. Test series, Monthly quiz)</label>
+                            <i class="form-group__bar"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <p style="color:red;" id = "errorMsgD"></p>
+                <div class="clearfix"></div>
+                <div class="m-t-20">
+                    <button type="submit" class="btn btn-primary submitBtn">Add Course</button>
+                    <a class="btn btn-link" href="<?=DASH_URL?>/courses-list">Cancel</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section>

@@ -7,17 +7,7 @@
         </div>
 
         <div class="action-header__item action-header__add">
-            <a href="<?=DASH_URL?>/courses?type=add" class="btn btn-danger btn-sm">Add New Course</a>
-        </div>
-
-        <div class="action-header__item action-header__item--sort hidden-xs hide">
-            <span class="action-header__small">Sort by :</span>
-
-            <select class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
-                <option>Names: A to Z</option>
-                <option>Names: Z to A</option>
-                <option>Frequently Contacted</option>
-            </select>
+            <a routerLink="/course-add" routerLinkActive="active" class="btn btn-danger btn-sm">Add New Course</a>
         </div>
     </div>
 
@@ -30,32 +20,32 @@
             <div class="col-md-12">
                 <div class="list-group list-group--block contact-lists">
                     <div class="list-group__header text-left">
-                        <?=$CountCourses?> Total Courses
+                        {{ coursesArray.length }} Total Courses
                     </div>
-                        <div class="list-group__wrap">
-                            <a class="list-group-item media" href="<?=DASH_URL?>/courses-list">
-                                <div class="media-body list-group__text">
-                                    <h4><?=ucfirst($value['cname'])?></h4>
-                                    <div class="list-group__attrs">
-                                        <div><b>Category&nbsp;:</b>&nbsp;<?php if($value['mname']) echo $value['mname']; else echo 'N/A'; ?></div>
-                                        <div><b>Price:</b>&nbsp;<?php if($value['price']) echo $value['price']; else echo 'N/A'; ?></div>
-                                        <div><b>Duration (In Weeks):</b>&nbsp;<?php if($value['duration']) echo $value['duration']; else echo 'N/A'; ?></div>
-                                        <div><b>Batch Size:</b>&nbsp;<?php if($value['avg_no_student']) echo $value['avg_no_student']; else echo 'N/A'; ?></div>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="actions list-group__actions">
-                                <div class="dropdown">
-                                    <a href="<?=DASH_URL?>/courses-list" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a>
-                                    
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="<?=DASH_URL?>/courses?type=edit&id=<?=base64_encode($value['id'])?>">Edit</a></li>
-                                        <li><a href="<?=DASH_URL?>/courses-list" id="<?=base64_encode($value['id'])?>####<?=ucfirst($value['cname'])?>" data-demo-action="delete-listing">Delete</a></li>
-                                    </ul>
+                    <div *ngFor="let course of coursesArray; let i = index" class="list-group__wrap">
+                        <a class="list-group-item media" href="<?=DASH_URL?>/courses-list">
+                            <div class="media-body list-group__text">
+                                <h4>{{ course.master_category_id ? course.master_category_id : 'N/A' }}</h4>
+                                <div class="list-group__attrs">
+                                    <div><b>Category&nbsp;:</b>&nbsp;{{ course.child_category_id ? course.child_category_id : 'N/A' }}</div>
+                                    <div><b>Price:</b>&nbsp;{{ course.price ? course.price : 'N/A' }}</div>
+                                    <div><b>Duration (In Weeks):</b>&nbsp;{{ course.duration ? course.duration : 'N/A' }}</div>
+                                    <div><b>Batch Size:</b>&nbsp;{{ course.avg_no_student ? course.avg_no_student : 'N/A' }}</div>
                                 </div>
                             </div>
+                        </a>
+                        <div class="actions list-group__actions">
+                            <div class="dropdown">
+                                <a href="<?=DASH_URL?>/courses-list" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a>
+                                
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="<?=DASH_URL?>/courses?type=edit&id=<?=base64_encode($value['id'])?>">Edit</a></li>
+                                    <li><a href="<?=DASH_URL?>/courses-list" id="<?=base64_encode($value['id'])?>####<?=ucfirst($value['cname'])?>" data-demo-action="delete-listing">Delete</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    <div class="load-more"><a href="#"> No Record Found!</a></div>
+                    </div>
+                    <div class="load-more" *ngIf="coursesArray.length == 0"><a href="#"> No Record Found!</a></div>
                 </div>
             </div>
         </div>
