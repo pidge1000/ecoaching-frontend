@@ -12,15 +12,24 @@ export class AppComponent implements OnInit {
 
 	public apiTesting: String = ''
 	public tokenVerify: boolean = false
-	constructor(private _HttpService: HttpService, private _Router : Router) { }
+	constructor(private _HttpService: HttpService, private _Router : Router) { 
+		this.changeOfRoutes();
+	}
+
+	changeOfRoutes() {
+        this._HttpService.getTokenVerify().subscribe(
+            (data: any) => { 
+            	if(data.status == 200) 
+            		this.tokenVerify = true 
+            	else
+            		this._Router.navigate(['/login', 'token-expire']);
+            },
+            err => console.error(err),
+            () => console.log('Done Loading API'))
+	}
 
 	ngOnInit() {
-		this._Router.events.subscribe((url) => {
-            this._HttpService.getTokenVerify().subscribe(
-                (data: any) => { if(data.status == 200) this.tokenVerify = true },
-                err => console.error(err),
-                () => console.log('Done Loading API'))
-		})
+
 	}
-	
+
 }

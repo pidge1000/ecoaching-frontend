@@ -10,7 +10,7 @@
             <h2>Add New Course</h2>
         </header>
 
-        <form class="card new-contact" id="AddCourseForm">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
             <div class="card__body">
                 <div class="row">
 
