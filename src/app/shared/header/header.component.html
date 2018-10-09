@@ -1,7 +1,7 @@
-<header id="header-alt" *ngIf="!headerStatus">
+<header id="header-alt" *ngIf="!tokenVerifyNav">
   	<a routerLink="/login" routerLinkActive="active" class="header-alt__logo hidden-xs">Dashboard</a>
 </header>
-<header id="header-alt" *ngIf="headerStatus">
+<header id="header-alt" *ngIf="tokenVerifyNav">
     <a href="<?=DASH_URL?>" class="header-alt__trigger hidden-lg" data-rmd-action="block-open" data-rmd-target="#main__sidebar">
         <i class="zmdi zmdi-menu"></i>
     </a>

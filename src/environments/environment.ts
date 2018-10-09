@@ -4,7 +4,8 @@
 
 export const environment = {
 	production: false,
-	APIEndpoint: "https://api-ecoaching-guru.herokuapp.com"
+	APIEndpoint: "http://localhost:3000"
+	//APIEndpoint: "https://api-ecoaching-guru.herokuapp.com"
 };
 
 /*

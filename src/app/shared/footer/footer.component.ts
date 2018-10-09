@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,17 +8,11 @@ import { Router } from '@angular/router';
 })
 export class FooterComponent implements OnInit {
 
-	public footerStatus: boolean = false
-  	constructor(private _Router : Router) { }
+	@Input() tokenVerifyNav: boolean
+    constructor(private _Router : Router) { }
 
-  	ngOnInit() {
+    ngOnInit() {
 
-  		this._Router.events.subscribe((url) => {
-  			if (localStorage.getItem('token')) {
-  				this.footerStatus = true
-  			}
-		})
-
-  	}
+    }
 
 }

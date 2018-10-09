@@ -16,7 +16,7 @@
 <router-outlet></router-outlet>-->
 
 
-<app-header></app-header>
-	<app-navbar></app-navbar>
-	<router-outlet></router-outlet>
-<app-footer></app-footer>
+<app-header [tokenVerifyNav]="tokenVerify"></app-header>
+<app-navbar [tokenVerifyNav]="tokenVerify"></app-navbar>
+<router-outlet></router-outlet>
+<app-footer [tokenVerifyNav]="tokenVerify"></app-footer>

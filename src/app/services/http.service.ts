@@ -24,4 +24,14 @@ export class HttpService {
 		return this._Http.get<any>(this.APIEndpoint + '/checking')
 	}
 
+	getTokenVerify(): Observable<any> {
+		const httpOptions = {
+    		headers: new HttpHeaders({ 
+    					'Content-Type':  'application/json',
+    					'Authorization': 'Bearer ' + localStorage.getItem('token')
+    				})
+		}
+		return this._Http.get<any>(this.APIEndpoint + '/tokenVerify', httpOptions)
+	}
+
 }

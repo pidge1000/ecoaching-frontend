@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { HttpService } from '../../services/http.service';
 
 @Component({
   	selector: 'app-navbar',
@@ -8,16 +10,11 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-	public navbarStatus: boolean = false
-  	constructor(private _Router : Router) { }
+    @Input() tokenVerifyNav: boolean
+  	constructor() { }
 
   	ngOnInit() {
 
-  		this._Router.events.subscribe((url) => {
-  			if (localStorage.getItem('token')) {
-  				this.navbarStatus = true	
-  			}
-		})
   	}
 
 }
