@@ -1,3 +1,9 @@
+For Testing:(Hosted on Heroku)
+
+Url: https://ecoaching.herokuapp.com/login
+User Email: 1@gmail.com,  Pwd: 12345
+
+
 # EcoachingFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.2.
